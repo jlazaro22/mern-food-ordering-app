@@ -7,7 +7,7 @@ export default function Footer() {
         </span>
         <span className='text-white font-bold tracking-tight flex gap-4'>
           <span>Privacy Policy</span>
-          <span>Terms and Conditions</span>{' '}
+          <span>Terms and Conditions</span>
         </span>
       </div>
     </div>
