@@ -27,6 +27,8 @@
 * [React Hook Form](https://react-hook-form.com/)
 * [TypeScript](https://www.typescriptlang.org/)
 * [Tailwind CSS](https://tailwindcss.com/)
+* [Shadcn](https://ui.shadcn.com/)
+* [Auth0](https://auth0.com/)
 * [Playwright](https://playwright.dev/)
 * [Git](https://git-scm.com/)
 * [GitHub](https://github.com/)
