@@ -2,6 +2,7 @@ import cors from 'cors';
 import 'dotenv/config';
 import express, { json, Request, Response, urlencoded } from 'express';
 import mongooseConnect from './lib/mongoose';
+import myUserRoutes from './routes/myUserRoutes';
 
 mongooseConnect();
 
@@ -15,8 +16,10 @@ app.use(urlencoded({ extended: true }));
 app.use(cors());
 
 app.get('/api/healthcheck', (req: Request, res: Response) => {
-  res.status(200).json({ message: 'Express server is running!' });
+  res.status(200).json({ message: 'Backend server is running!' });
 });
+
+app.use('/api/my/user', myUserRoutes);
 
 app.listen(port, host, () => {
   console.log(`🚀 Server is running on http://${host}:${port}`);
