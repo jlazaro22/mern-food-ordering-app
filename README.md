@@ -6,14 +6,6 @@
 * [Stripe test cards](https://docs.stripe.com/testing#international-cards)
 * [Stripe CLI](https://docs.stripe.com/stripe-cli?locale=en-GB)
 
-## Other Links
-
-* [Auth0](https://auth0.com/)
-* [Stripe](https://stripe.com/)
-* [Cloudinary](https://cloudinary.com/)
-* [MongoDB](https://mongodb.com)
-* [Render](https://render.com)
-
 ## Technologies Used
 
 * [Node.js](https://nodejs.org/)
@@ -34,6 +26,7 @@
 * [GitHub](https://github.com/)
 * [Render.com](https://render.com/)
 * [Cloudinary](https://cloudinary.com/)
+* [Stripe](https://stripe.com/)
 
 <!-- ## Installation
 
@@ -75,12 +68,12 @@ npm test
 
 ## Meta
 
-João Lázaro – [@YourTwitter](https://twitter.com/dbader_org) – <YourEmail@example.com>
+João Lázaro – [LinkedIn](https://www.linkedin.com/in/jo%C3%A3o-l%C3%A1zaro-95402482/) – <joao.lazaro@outlook.com>
 
 Distributed under the GNU GENERAL PUBLIC LICENSE Version 3.
 See [LICENSE](LICENSE) for more information.
 
-[https://github.com/jlazaro22/mern-booking-app](https://github.com/jlazaro22/mern-booking-app)
+[GitHub Repository](https://github.com/jlazaro22/mern-food-ordering-app)
 
 <!-- ## Contributing
 
