@@ -11,7 +11,7 @@ type CreateUserRequest = {
 export function useCreateMyUser() {
   const { getAccessTokenSilently } = useAuth0();
 
-  const createMyUserRequest = async (user: CreateUserRequest) => {
+  async function createMyUserRequest(user: CreateUserRequest) {
     const accessToken = await getAccessTokenSilently();
     const response = await fetch(`${API_BASE_URL}/api/my/user`, {
       method: 'POST',
@@ -22,10 +22,12 @@ export function useCreateMyUser() {
       body: JSON.stringify(user),
     });
 
+    console.log('🪲 create response: ', response);
+
     if (!response.ok) {
       throw new Error('Failed to create user');
     }
-  };
+  }
 
   const {
     mutateAsync: createUser,
@@ -41,5 +43,54 @@ export function useCreateMyUser() {
     isPending,
     isError,
     isSuccess,
+  };
+}
+
+type UpdateUserRequest = {
+  name: string;
+  addressLine1: string;
+  city: string;
+  country: string;
+};
+
+export function useUpdateMyUser() {
+  const { getAccessTokenSilently } = useAuth0();
+
+  async function updateMyUserRequest(formData: UpdateUserRequest) {
+    const accessToken = await getAccessTokenSilently();
+    const response = await fetch(`${API_BASE_URL}/api/my/user`, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+
+    console.log('🪲 update response: ', response);
+
+    if (!response.ok) {
+      throw new Error('Failed to update user');
+    }
+  }
+
+  const {
+    mutateAsync: updateUser,
+    isPending,
+    isSuccess,
+    isError,
+    error,
+    reset,
+  } = useMutation({
+    mutationFn: updateMyUserRequest,
+  });
+
+  return {
+    updateUser,
+    isPending,
+    isSuccess,
+    isError,
+    error,
+    reset,
   };
 }
