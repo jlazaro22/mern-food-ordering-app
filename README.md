@@ -18,6 +18,7 @@
 * [React Query](https://tanstack.com/query/)
 * [React Hook Form](https://react-hook-form.com/)
 * [TypeScript](https://www.typescriptlang.org/)
+* [Zod](https://zod.dev/)
 * [Tailwind CSS](https://tailwindcss.com/)
 * [Shadcn](https://ui.shadcn.com/)
 * [Auth0](https://auth0.com/)
