@@ -8,7 +8,7 @@
   "license": "ISC",
   "scripts": {
     "dev": "tsx watch src/index.ts",
-    "build": "tsup src --out-dir dist",
+    "build": "pnpm install && tsup src --out-dir dist",
     "start": "node dist/index.js"
   },
   "dependencies": {

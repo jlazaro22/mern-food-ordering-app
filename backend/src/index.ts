@@ -15,8 +15,8 @@ app.use(json());
 app.use(urlencoded({ extended: true }));
 app.use(cors());
 
-app.get('/api/healthcheck', (req: Request, res: Response) => {
-  res.status(200).json({ message: 'Backend server is running!' });
+app.get('/health', async (req: Request, res: Response) => {
+  res.status(200).json({ message: 'Health OK!' });
 });
 
 app.use('/api/my/user', myUserRoutes);
