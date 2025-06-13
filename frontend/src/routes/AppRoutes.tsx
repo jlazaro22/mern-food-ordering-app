@@ -1,6 +1,7 @@
 import Layout from '@/layouts/Layout';
 import AuthCallbackPage from '@/pages/AuthCallbackPage';
 import HomePage from '@/pages/HomePage';
+import UserProfilePage from '@/pages/UserProfilePage';
 import { Navigate, Route, Routes } from 'react-router';
 
 export default function AppRoutes() {
@@ -9,7 +10,7 @@ export default function AppRoutes() {
       <Route
         path='/'
         element={
-          <Layout>
+          <Layout showHero>
             <HomePage />
           </Layout>
         }
@@ -19,7 +20,7 @@ export default function AppRoutes() {
         path='/user-profile'
         element={
           <Layout>
-            <h1>User Profile Page</h1>
+            <UserProfilePage />
           </Layout>
         }
       />
