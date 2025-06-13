@@ -1,5 +1,6 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import { useMutation } from '@tanstack/react-query';
+import { toast } from 'sonner';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -22,8 +23,6 @@ export function useCreateMyUser() {
       body: JSON.stringify(user),
     });
 
-    console.log('🪲 create response: ', response);
-
     if (!response.ok) {
       throw new Error('Failed to create user');
     }
@@ -32,17 +31,25 @@ export function useCreateMyUser() {
   const {
     mutateAsync: createUser,
     isPending,
-    isError,
     isSuccess,
+    error,
+    reset,
   } = useMutation({
     mutationFn: createMyUserRequest,
   });
 
+  if (isSuccess) {
+    toast.success('User created successfully');
+  }
+
+  if (error) {
+    toast.error(error.message);
+    reset();
+  }
+
   return {
     createUser,
     isPending,
-    isError,
-    isSuccess,
   };
 }
 
@@ -67,8 +74,6 @@ export function useUpdateMyUser() {
       body: JSON.stringify(formData),
     });
 
-    console.log('🪲 update response: ', response);
-
     if (!response.ok) {
       throw new Error('Failed to update user');
     }
@@ -78,19 +83,23 @@ export function useUpdateMyUser() {
     mutateAsync: updateUser,
     isPending,
     isSuccess,
-    isError,
     error,
     reset,
   } = useMutation({
     mutationFn: updateMyUserRequest,
   });
 
+  if (isSuccess) {
+    toast.success('User profile updated!');
+  }
+
+  if (error) {
+    toast.error(error.message);
+    reset();
+  }
+
   return {
     updateUser,
     isPending,
-    isSuccess,
-    isError,
-    error,
-    reset,
   };
 }
