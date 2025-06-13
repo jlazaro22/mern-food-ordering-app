@@ -5,6 +5,7 @@ import { validateMyUserRequest } from '../middleware/validation';
 
 const router = Router();
 
+router.get('/', jwtCheck, jwtParse, myUserController.getCurrentUSer);
 router.post('/', jwtCheck, myUserController.createCurrentUSer);
 router.put(
   '/',
