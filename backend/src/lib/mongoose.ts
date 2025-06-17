@@ -9,7 +9,7 @@ export default function mongooseConnect() {
 
   if (!db) {
     throw new Error(
-      `Missing MONGODB_CONNECTION_STRING for "${environment}" environment variable.`,
+      `Missing "${environment}" MONGODB_CONNECTION_STRING environment variable.`,
     );
   }
 

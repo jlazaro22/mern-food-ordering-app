@@ -1,10 +1,12 @@
 import cors from 'cors';
 import 'dotenv/config';
 import express, { json, Request, Response, urlencoded } from 'express';
+import cloudinaryConfig from './lib/cloudinary';
 import mongooseConnect from './lib/mongoose';
 import myUserRoutes from './routes/myUserRoutes';
 
 mongooseConnect();
+cloudinaryConfig();
 
 const host = process.env.HOST as string;
 const port = Number(process.env.PORT);
