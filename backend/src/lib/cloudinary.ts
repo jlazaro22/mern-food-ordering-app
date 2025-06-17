@@ -15,3 +15,11 @@ export default function cloudinaryConfig() {
     api_secret,
   });
 }
+
+export async function uploadImage(imageFile: Express.Multer.File) {
+  const base64Image = Buffer.from(imageFile.buffer).toString('base64');
+  let dataURI = `data:${imageFile.mimetype};base64,${base64Image}`;
+  const uploadResponse = await cloudinary.uploader.upload(dataURI);
+
+  return uploadResponse;
+}

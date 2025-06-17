@@ -3,6 +3,7 @@ import 'dotenv/config';
 import express, { json, Request, Response, urlencoded } from 'express';
 import cloudinaryConfig from './lib/cloudinary';
 import mongooseConnect from './lib/mongoose';
+import myRestaurantRoutes from './routes/myRestaurantRoutes';
 import myUserRoutes from './routes/myUserRoutes';
 
 mongooseConnect();
@@ -22,6 +23,7 @@ app.get('/health', async (req: Request, res: Response) => {
 });
 
 app.use('/api/my/user', myUserRoutes);
+app.use('/api/my/restaurant', myRestaurantRoutes);
 
 app.listen(port, host, () => {
   console.log(`🚀 Server is running on http://${host}:${port}`);
