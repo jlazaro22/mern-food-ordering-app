@@ -6,6 +6,8 @@ import { validateMyRestaurantRequest } from '../middleware/validation';
 
 const router = Router();
 
+router.get('/', jwtCheck, jwtParse, myRestaurantController.getMyRestaurant);
+
 router.post(
   '/',
   multerUpload.single('imageFile'),

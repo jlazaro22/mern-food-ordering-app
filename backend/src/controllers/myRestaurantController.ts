@@ -3,6 +3,22 @@ import mongoose from 'mongoose';
 import { uploadImage } from '../lib/cloudinary';
 import Restaurant from '../models/restaurant';
 
+async function getMyRestaurant(req: Request, res: Response) {
+  try {
+    const restaurant = await Restaurant.findOne({ user: req.userId });
+
+    if (!restaurant) {
+      res.status(404).json({ message: 'User restaurant not found' });
+      return;
+    }
+
+    res.status(200).json(restaurant);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: 'Error getting restaurant' });
+  }
+}
+
 async function createMyRestaurant(req: Request, res: Response) {
   try {
     const existingRestaurant = await Restaurant.findOne({ user: req.userId });
@@ -29,4 +45,4 @@ async function createMyRestaurant(req: Request, res: Response) {
   }
 }
 
-export default { createMyRestaurant };
+export default { getMyRestaurant, createMyRestaurant };
