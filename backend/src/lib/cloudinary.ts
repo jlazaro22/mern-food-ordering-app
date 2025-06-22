@@ -21,5 +21,5 @@ export async function uploadImage(imageFile: Express.Multer.File) {
   let dataURI = `data:${imageFile.mimetype};base64,${base64Image}`;
   const uploadResponse = await cloudinary.uploader.upload(dataURI);
 
-  return uploadResponse;
+  return uploadResponse.url;
 }
