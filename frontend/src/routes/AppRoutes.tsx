@@ -2,7 +2,7 @@ import ProtectedRoute from '@/auth/ProtectedRoute';
 import Layout from '@/layouts/Layout';
 import AuthCallbackPage from '@/pages/AuthCallbackPage';
 import HomePage from '@/pages/HomePage';
-import ManageRestaurantPage from '@/pages/MAnageRestaurantPage';
+import ManageRestaurantPage from '@/pages/ManageRestaurantPage';
 import UserProfilePage from '@/pages/UserProfilePage';
 import { Navigate, Route, Routes } from 'react-router';
 

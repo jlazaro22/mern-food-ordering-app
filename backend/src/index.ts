@@ -5,6 +5,7 @@ import cloudinaryConfig from './lib/cloudinary';
 import mongooseConnect from './lib/mongoose';
 import myRestaurantRoutes from './routes/myRestaurantRoutes';
 import myUserRoutes from './routes/myUserRoutes';
+import restaurantRoutes from './routes/restaurantRoutes';
 
 mongooseConnect();
 cloudinaryConfig();
@@ -24,6 +25,7 @@ app.get('/health', async (req: Request, res: Response) => {
 
 app.use('/api/my/user', myUserRoutes);
 app.use('/api/my/restaurant', myRestaurantRoutes);
+app.use('/api/restaurant', restaurantRoutes);
 
 app.listen(port, host, () => {
   console.log(`🚀 Server is running on http://${host}:${port}`);
